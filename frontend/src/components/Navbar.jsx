@@ -3,13 +3,13 @@ import LoginIcon from "../assets/login-icon.svg"
 const Navbar = () => {
   return (
     <>
-    <div className='fixed z-10 h-24 w-screen bg-white'>
+    <header className='fixed z-10 h-24 w-screen bg-white'>
         <div className="navbar h-24 w-full text-white flex justify-between">
             <div className='logo flex flex-col justify-center items-center h-full md:w-1/5 pl-5 '>
                     <h1 className='font-extrabold text-3xl cursor-pointer text-teal-500'>ePAY</h1>
                     <p className='font-extrabold text-[10px] cursor-pointer text-amber-500'>PAY YOUR FEES</p>
             </div>
-            <div className='menuItems md:flex justify-evenly items-center h-full lg:w-3/6 font-bold hidden text-slate-700'>
+            <div className='menuItems lg:flex justify-evenly items-center h-full lg:w-3/6 font-bold hidden text-slate-700'>
                 <h1 className='hover:text-amber-500 cursor-pointer duration-700'>MENU</h1>
                 <h1 className='hover:text-amber-500 cursor-pointer duration-700'>EDUCATION FEES</h1>
                 <h1 className='hover:text-amber-500 cursor-pointer duration-700'>INSTITUTION</h1>
@@ -24,7 +24,7 @@ const Navbar = () => {
             </div>
         <hr className='h-[1px] w-full border-0 bg-white absolute bottom-0 opacity-35'/>
         </div>
-    </div>
+    </header>
     </>
   )
 }

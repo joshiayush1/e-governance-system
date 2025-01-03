@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import epay6 from "../assets/epay-image-6.webp";
 import payNow from "../assets/pay-now-icon.svg";
 import learnMore from "../assets/pay-now-icon2.svg";
@@ -10,7 +10,7 @@ import welcome from "../assets/e-pay-welcome.jpg"
 const Home = () => {
   return (
     <>
-      <div className="section overflow-x-hidden relative w-screen">
+      <section className="h-full section overflow-x-hidden w-screen">
         <div className="h-1/2 md:h-screen w-screen relative">
           <img
             src={epay6}
@@ -18,7 +18,7 @@ const Home = () => {
             className="w-full h-[500px] md:h-screen object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
-          <div className="absolute h-1/2 md:h-screen w-full md:w-1/2 top-28 md:top-56 md:left-32 text-white flex flex-col justify-center md:block pl-5">
+          <div className="absolute h-1/2 md:h-screen w-full md:w-1/2 top-28 md:top-56 md:left-28 text-white flex flex-col justify-center md:block pl-5">
             <p className="font-semibold text-sm md:text-xl text-teal-500">
               Secure Online Payments
             </p>
@@ -26,11 +26,11 @@ const Home = () => {
               Digital Admissions for a Smarter Tomorrow
             </h1>
             <div className="flex gap-3 mt-10">
-              <div className="font-bold bg-teal-400 rounded-md flex justify-evenly items-center h-12 w-40 hover:bg-amber-600 cursor-pointer">
+              <div className="font-bold bg-teal-400 rounded-md flex justify-evenly items-center h-12 w-40 hover:bg-amber-600 cursor-pointer ">
                 <img src={payNow} className="h-4 w-10 md:w-4" alt="" />
                 <h1 className="text-sm mr-6">PAY NOW</h1>
               </div>
-              <div className="font-bold bg-white text-teal-400 rounded-md flex justify-evenly items-center h-12 w-40 hover:bg-amber-600 cursor-pointer">
+              <div className="font-bold bg-white text-teal-400 rounded-md flex justify-evenly items-center h-12 w-40 hover:bg-amber-600 cursor-pointer ">
                 <img src={learnMore} className="h-4 w-10 md:w-4 " alt="" />
                 <h1 className="text-sm mr-4">LEARN MORE</h1>
               </div>
@@ -66,19 +66,40 @@ const Home = () => {
 
       {/* Welcome */}
 
-      <div className='h-[700px] w-screen display flex pt-60'>
-        <div className='w-1/2 h-[700px] border border-red-500 pl-7 flex justify-center items-center overflow-x-hidden'>
+      <div className='h-[700px] mt-[500px] md:mt-0 w-screen display md:flex pt-60'>
+        <div className='w-full md:w-1/2 h-[700px] pl-7 flex justify-center items-center overflow-x-hidden'>
           <img src={welcome} alt="" className='h-3/4'/>
         </div>
-        <div className='w-1/2 h-[700px] border border-blue-500 flex flex-col justify-center pr-36 overflow-x-hidden'>
+        <div className='w-full md:w-1/2 h-[700px] px-5 flex flex-col justify-center pr-28 md:pr-36 overflow-x-hidden'>
           <h1 className='bg-yellow-200 w-20 h-6 flex justify-center items-center text-amber-600 font-medium rounded-md text-xs'>WELCOME!</h1>
-          <h1 className='text-4xl text-teal-500 mt-8 font-bold leading-snug tracking-tight'>Make Payments Anytime, Anywhere, at Your Convenience and Time.</h1>
+          <h1 className='text-3xl md:text-4xl text-teal-500 mt-8 font-bold leading-snug tracking-tight'>Make Payments Anytime, Anywhere, at Your Convenience and Time.</h1>
           <hr className='w-52 border-2 mt-6'/> 
-          <p className='mt-10 text-slate-600 tracking-wide leading-relaxed'>Whether it's during a busy workday or late at night, our platform allows you to make payments anytime and anywhere. We believe in offering flexibility, ensuring you never have to worry about timing when managing your payments.</p>
+          <p className='text:sm md:text-base mt-10 text-slate-600 tracking-wide leading-relaxed'>Whether it's during a busy workday or late at night, our platform allows you to make payments anytime and anywhere. We believe in offering flexibility, ensuring you never have to worry about timing when managing your payments.</p>
         </div>
       </div>
+  
+      {/* footer */}
 
-      </div>
+      <footer>
+        <div className='footer h-96 md:h-56 mt-[950px] md:mt-72 bg-sky-950 w-screen border-5 border-red-700 flex flex-col md:flex-row text-white'>
+            <div className='logo flex flex-col h-full md:w-1/2  pl-5 md:pl-32 pt-10'>
+                    <h1 className='font-extrabold text-3xl cursor-pointer text-teal-500'>ePAY</h1>
+                    <p className='font-extrabold text-[10px] cursor-pointer text-amber-500'>PAY YOUR FEES</p>
+                    
+                    <p className="mt-10 font-semibold tracking-tight">Simplifying payments and enhancing digital convenience for you.</p>
+            </div>
+                <div className="w-1/2 h-full flex flex-col justify-center pl-5">
+                <div className="gap-4 flex">
+                  <span className="text-amber-500">Email:</span>ayushjoshi207@gmail.com
+                </div>
+                <div className="gap-4 flex">
+                  <span className="text-amber-500">LinkedIn:</span><a href="https://www.linkedin.com/in/ayush-joshi-202902293/" className="underline underline-offset-2">Tap here</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+      </section>
     </>
   );
 };
