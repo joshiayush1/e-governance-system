@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import epay6 from "../assets/epay-image-6.webp";
 import payNow from "../assets/pay-now-icon.svg";
 import learnMore from "../assets/pay-now-icon2.svg";
@@ -10,7 +10,7 @@ import welcome from "../assets/e-pay-welcome.jpg"
 const Home = () => {
   return (
     <>
-      <section className="h-full section overflow-x-hidden w-screen">
+      <section className="h-full section overflow-x-hidden max-w-screen">
         <div className="h-1/2 md:h-screen w-screen relative">
           <img
             src={epay6}
@@ -67,7 +67,7 @@ const Home = () => {
       {/* Welcome */}
 
       <div className='h-[700px] mt-[500px] md:mt-0 w-screen display md:flex pt-60'>
-        <div className='w-full md:w-1/2 h-[700px] pl-7 flex justify-center items-center overflow-x-hidden'>
+        <div className='w-full md:w-1/2 h-[700px] md:pl-7 flex justify-center items-center overflow-x-hidden'>
           <img src={welcome} alt="" className='h-3/4'/>
         </div>
         <div className='w-full md:w-1/2 h-[700px] px-5 flex flex-col justify-center pr-28 md:pr-36 overflow-x-hidden'>
