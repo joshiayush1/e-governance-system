@@ -1,7 +1,7 @@
 import React from 'react'
 import backbtn from "../assets/caret-left-solid.svg"
 
-const StudentRegister = () => {
+const AdminRegister = () => {
   return (
     <div className='min-h-screen max-w-screen overflow-x-hidden flex flex-col justify-center items-center bg-slate-50'>
             <a href="/">
@@ -17,34 +17,34 @@ const StudentRegister = () => {
             <div className='h-full w-screen flex flex-col lg:flex-row mt-40 lg:mt-40'>
                 <div className='h-full lg:h-full w-full lg:w-1/2 flex justify-center items-center'>
                     <div className='w-full lg:w-[450px] min-h-[500px] px-5 py-2 lg:px-10 lg:py-10'>
-                        <h1 className='mb-5 font-semibold'>Instructions for Students:</h1>
+                        <h1 className='mb-5 font-semibold'>Instructions for Institute Admins:</h1>
 
-                        <p className='text-sm text-slate-700 mb-3'>- Enter your correct details while Logging In.</p>
-    
+                        <p className='text-sm text-slate-700 mb-3'>- Enter Your Correct Details: Ensure all information provided during registration or login is accurate and up-to-date.</p>
                         <p className='text-sm text-slate-700 mb-3'>- Enter your full name in the format: Surname Yourname Fathername.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Enter your email address.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Enter your registered email address in the first field.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Select your college from the list.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Select your course from the available options.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Enter your unique roll number as assigned by your institution.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Enter a secure password for your account.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Re-enter the same password to confirm..</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Provide your official email address for communication purposes.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Enter the complete name of the institution or college you represent.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Specify the city where your institution is located.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Upload a valid official document (e.g., institution ID, authorization letter) to verify your credentials as an admin.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Provide a valid UPI ID that will be used for transactions (e.g., fee payments).</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Enter a secure password for your admin account.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Re-enter the password to ensure accuracy.</p>
     
-                        <p className='text-sm text-slate-700 mb-5'>- After filling out all the details, click the “REGISTER” button to submit your form.</p>
+                        <p className='text-sm text-slate-700 mb-5'>- Click on the "REQUEST" button to submit your registration request.</p>
 
                         <h1 className='mb-5 font-semibold'>Important Notes:</h1>
-                        <p className='text-sm text-slate-700 mb-3'>- Ensure all the details entered are accurate and match your official records.</p>
-                        <p className='text-sm text-slate-700 mb-3'>- Use a strong password to secure your account.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Requests will typically be processed within 2-3 business days. Please ensure that all provided information is accurate to avoid any delays. Check your email regularly for updates on approval or rejection.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Double-check all details before submitting, as inaccurate information may delay approval.</p>
+                        <p className='text-sm text-slate-700 mb-3'>- Use a strong password to enhance the security of your admin account.</p>
                         <p className='text-sm text-slate-700 mb-28'>- If you face any issues during registration or login, contact our support team at ayushjoshi207@gmail.com .</p>
     
-                        <h1 className='hover:underline hover:decoration-teal-500 mb-4'><a href="/admin-login">Admin Login? Click here</a></h1>
-                        <h1 className='hover:underline hover:decoration-teal-500'><a href="/admin-registration">New Admin Registration? Click here</a></h1>
+                        <h1 className='hover:underline hover:decoration-teal-500 mb-4'><a href="/admin-login">Student Login? Click here</a></h1>
+                        <h1 className='hover:underline hover:decoration-teal-500'><a href="/admin-registration">New Student Registration? Click here</a></h1>
                     </div>
                 </div>
     
                 <div className='w-full lg:w-1/2 h-1/2 lg:h-full flex items-center mb-10'>
                     <div className='w-full lg:w-full min-h-[500px] px-5 lg:px-10 py-8 lg:py-10 md:mr-10 shadow-lg bg-white'>
-                        <h1 className='text-3xl font-bold text-teal-500 mb-10'>Student Registration</h1>
+                        <h1 className='text-3xl font-bold text-teal-500 mb-10'>Admin Registration</h1>
                         <form action="" className='w-full h-full flex flex-col justify-center'>
                             
                             <div className='flex flex-col md:flex-row gap-10 mb-10'>
@@ -68,49 +68,18 @@ const StudentRegister = () => {
                             <div className='flex flex-col md:flex-row gap-10 mb-10'>
                                 <div className='flex flex-col mb-10'>
                                     <div className='mb-2'>
-                                        <label htmlFor="college" className='text-slate-700'>Select your College</label>
+                                        <label htmlFor="college" className='text-slate-700'>Write Institution/College name</label>
                                         <span className='text-amber-500'> *</span>
                                     </div>
-                                    <select name="college" id="college" autoComplete='college' className='border py-2 outline-none w-64 text-slate-700 rounded-md'>
-                                        <option value="Thakur College of Commerce and Science">Thakur College of Commerce and Science</option>
-                                    </select>
+                                    <input id="college" autoComplete='college' placeholder='Enter Institution name' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm' />
                                 </div>       
 
                                 <div className='flex flex-col mb-5'>
                                     <div className='mb-2'>
-                                        <label htmlFor="course" className='text-slate-700'>Select Your Course</label>
+                                        <label htmlFor="course" className='text-slate-700'>City name</label>
                                         <span className='text-amber-500'> *</span>
                                     </div>  
-                                    <select name="course" id="course" autoComplete='course' className='border py-2 outline-none w-64 text-slate-700 rounded-md'>
-                                        <option value="B.Com. (Investment Management)">B.Com. (Investment Management)</option>
-                                        <option value="B.Com. Financial Markets">B.Com. Financial Markets</option>
-                                        <option value="B.Com. Banking & Insurance">B.Com. Banking & Insurance</option>
-                                        <option value="BA MMC">BA MMC</option>
-                                        <option value="B.A. (Film TV & New Media Production)">B.A. (Film TV & New Media Production)</option>
-                                        <option value="BCom (Accounting & Finance)">BCom (Accounting & Finance)</option>
-                                        <option value="B.Com. (Management Studies) / B.M.S.">B.Com. (Management Studies) / B.M.S.</option>
-                                        <option value="B.Com.">B.Com.</option>
-                                        <option value="B.Sc. Aviation">B.Sc. Aviation</option>
-                                        <option value="B.Sc. Bio Technology">B.Sc. Bio Technology</option>
-                                        <option value="B.Sc. C.S.">B.Sc. C.S.</option>
-                                        <option value="B.Sc. I.T.">B.Sc. I.T.</option>
-                                        <option value="B.Sc.">B.Sc.</option>
-                                        <option value="BSc in Actuarial Science">BSc in Actuarial </option>
-                                        <option value="B.Com. (Service Industry Management)">B.Com. (Service Industry Management)</option>
-                                        <option value="BSc in Artificial Intelligence and Machine Learning">BSc in Artificial Intelligence and Machine Learning</option>
-                                        <option value="Bachelor / Bachelor (Hons.) of Sports Management">Bachelor / Bachelor (Hons.) of Sports Management</option>
-                                        <option value="B.Com. in Business Administration (Professional Accountancy & Financial Management)">B.Com. in Business Administration (Professional Accountancy & Financial Management)</option>
-                                        <option value="B.Sc. / B.Sc. (Hons.) in Interior Design">B.Sc. / B.Sc. (Hons.) in Interior Design</option>
-                                        <option value="Bachelor of Sports Science">Bachelor of Sports Science</option>
-                                        <option value="B.Com. Digital Business">B.Com. Digital Business</option>
-                                        <option value="B.Sc. (Data Science)">B.Sc. (Data Science)</option>
-                                        <option value="B.Sc.(Animation & VFX)">B.Sc.(Animation & VFX)</option>
-                                        <option value="B.Sc. Actuarial Science">B.Sc. Actuarial Science</option>
-                                        <option value="B.Com. Honours">B.Com. Honours</option>
-                                        <option value="BCom (Entrepreneurship)">BCom (Entrepreneurship)</option>
-                                        <option value="BCom (Retail Operations)">BCom (Retail Operations)</option>
-                                        <option value="B.Com (International Accounting)">B.Com (International Accounting)</option>
-                                    </select>
+                                    <input id="course" autoComplete='course' placeholder='Enter city' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm' />
                                 </div>
         
                             </div>
@@ -118,15 +87,16 @@ const StudentRegister = () => {
                             <div className='flex flex-col md:flex-row gap-10 mb-10'>
                                 <div className='flex flex-col mb-10'>
                                     <div className='mb-2'>
-                                        <label htmlFor='rollno' className='text-slate-700'>Your roll number</label>
+                                        <label htmlFor='rollno' className='text-slate-700'>Upload Identification Document</label>
                                         <span className='text-amber-500'> *</span>
                                     </div>
-                                    <input type="text" id='rollno' autoComplete='rollno' placeholder='Enter your roll no.' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm'/>
+                                    <input type="file" id='file'hidden/>
+                                    <button id='rollno' className='w-64 rounded-md h-10 border bg-amber-500 hover:bg-amber-400 text-white outline-none px-2 text-sm'>Choose a file</button>
                                 </div>  
         
                                 <div className='flex flex-col mb-10'>
                                     <div className='mb-2'>
-                                        <label htmlFor='aaddharno' className='text-slate-700'>Your Aadhar number</label>
+                                        <label htmlFor='aaddharno' className='text-slate-700'>UPI ID</label>
                                         <span className='text-amber-500'> *</span>
                                     </div>
                                     <input type="number" id='aaddharno' autoComplete='aadharno' placeholder='Enter aadhar number' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm'/>
@@ -153,10 +123,10 @@ const StudentRegister = () => {
     
     
                             <div className='w-28 h-10 mb-20 flex justify-center items-center rounded-md bg-amber-500 hover:bg-teal-500 cursor-pointer'>
-                                <input type="button" value="REGISTER" className='font-semibold text-white cursor-pointer'/>
+                                <input type="button" value="REQUEST" className='font-semibold text-white cursor-pointer'/>
                             </div>
     
-                            <h1 className='hover:underline hover:decoration-teal-500'><a href="/student-login">Already Registered? Click here</a></h1>
+                            <h1 className='hover:underline hover:decoration-teal-500'><a href="/admin-login">Already Registered? Click here</a></h1>
     
                         </form>
     
@@ -168,4 +138,4 @@ const StudentRegister = () => {
   )
 }
 
-export default StudentRegister
+export default AdminRegister
