@@ -6,6 +6,7 @@ import StudentLogin from './components/StudentLogin'
 import StudentRegister from './components/StudentRegister'
 import AdminLogin from './components/AdminLogin'
 import AdminRegister from './components/AdminRegister'
+import {Toaster} from "react-hot-toast"
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
         <Route path="/admin-registration" element={<AdminRegister />} />
       </Routes>
     </Router>
+
+    <Toaster />
     </>
   )
 }
