@@ -22,6 +22,12 @@ const StudentLogin = () => {
         try {
             const response = await axios.post("http://localhost:4001/student/student-login", formData);
             toast.success("Login Success");
+
+            toast.success("Registration Success");
+            localStorage.setItem('email', response.data.student.email);
+            localStorage.setItem('role', response.data.student.role);
+            
+                        window.location.href = '/';
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong!");
         }

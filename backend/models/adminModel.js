@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
-    fullname:{
+    name:{
         type: String,
         required: true
     },
@@ -10,15 +10,16 @@ const adminSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    institution:{
+    college:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "College",
+        required: true
+    },
+    city:{
         type: String,
         required: true
     },
-    cityname:{
-        type: String,
-        required: true
-    },
-    identificationdoc:{
+    address:{
         type: String,
         required: true,
     },
@@ -27,12 +28,22 @@ const adminSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    createpassword:{
+    password:{
         type: String,
         required: true,
     },
-    confirmpassword:{
+    username:{
         type: String,
-        required: true,
+        unique: true
+    },
+    courses: {
+        type: Object,
+    },
+    role: {
+        type: String,
     }
 })
+
+const adminModel = mongoose.model("Admin", adminSchema);
+
+export default adminModel

@@ -7,6 +7,8 @@ import StudentRegister from './components/StudentRegister'
 import AdminLogin from './components/AdminLogin'
 import AdminRegister from './components/AdminRegister'
 import {Toaster} from "react-hot-toast"
+import EducationFeesPage from './EducationFees/EducationFeesPage'
+import Logout from './components/Logout'
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <Route path="/student-registration" element={<StudentRegister />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-registration" element={<AdminRegister />} />
+        <Route path='/institute-fees' element={<EducationFeesPage />} />
+        <Route path='/logout' element={<Logout />} />
       </Routes>
     </Router>
 

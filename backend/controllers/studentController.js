@@ -8,7 +8,8 @@ export const loginStudent = async (req, res) => {
     try {
         const { email, password } = req.body;
         const student = await studentModel.findOne({ email });
-
+        console.log(student);
+        
         if (!student) {
             return res.status(400).json({ success: false, message: "User not found" });
         }
@@ -26,6 +27,8 @@ export const loginStudent = async (req, res) => {
             student: {
                 id: student._id,
                 name: student.name,
+                email: student.email,
+                role: student.role,
             }
         });
     } catch (error) {
@@ -53,6 +56,7 @@ export const registerStudent = async (req, res) => {
             rollno, 
             semester, 
             password: hashedPassword,
+            role : "Student",
         });
 
         const student = await newUser.save();
@@ -65,6 +69,8 @@ export const registerStudent = async (req, res) => {
             student: {
                 id: student._id,
                 name: student.name,
+                email: student.email,
+                role: student.role,
             }
         });
     } catch (err) {

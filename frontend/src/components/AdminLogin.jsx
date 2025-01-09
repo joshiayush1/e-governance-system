@@ -1,7 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import backbtn from "../assets/caret-left-solid.svg"
+import axios from 'axios';
+import {toast} from 'react-hot-toast';
 
 const AdminLogin = () => {
+    const [formData, setFormData] = useState({
+        username: "",
+        password: ""
+    });
+
+    const handleChange = (e) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [e.target.id]: e.target.value
+        }));
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:4001/admin/admin-login", formData);
+            if (response.data.success) {
+
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("email", response.data.admin.email);
+                localStorage.setItem("role", response.data.admin.role);
+        
+            toast.success("Login Success");
+            
+
+            window.location.href = "/";
+        } else {
+            toast.error(response.data.message || "Something went wrong!");
+        }
+        } catch (error) {
+        toast.error(error.response?.data?.message || "Something went wrong!");
+        }
+    };
   return (
     <div className='min-h-screen w-screen flex flex-col justify-center items-center bg-slate-50'>
         <a href="/">
@@ -37,14 +72,14 @@ const AdminLogin = () => {
             <div className='w-full lg:w-1/2 h-1/2 lg:h-full flex items-center'>
                 <div className='w-full lg:w-[450px] h-[500px] px-5 lg:px-10 py-8 lg:py-10 shadow-lg bg-white'>
                     <h1 className='text-3xl font-bold text-teal-500'>Admin Login</h1>
-                    <form action="" className='w-full h-full flex flex-col justify-center'>
+                    <form onSubmit={handleSubmit} className='w-full h-full flex flex-col justify-center'>
                         
                         <div className='flex flex-col mb-5'>
                             <div className='mb-2'>
                                 <label className='text-slate-700'>Your username</label>
                                 <span className='text-amber-500'> *</span>
                             </div>  
-                            <input type="text" placeholder='Enter your username' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm'/>
+                            <input type="text" id='username' onChange={handleChange} value={formData.username} placeholder='Enter your username' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm'/>
                         </div>
 
                         <div className='flex flex-col mb-10'>
@@ -52,12 +87,12 @@ const AdminLogin = () => {
                                 <label className='text-slate-700'>Your password</label>
                                 <span className='text-amber-500'> *</span>
                             </div>
-                            <input type="text" placeholder='Enter your password' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm'/>
+                            <input type="password" id='password' onChange={handleChange} value={formData.password} placeholder='Enter your password' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm'/>
                         </div>                
 
-                        <div className='w-28 h-10 mb-20 flex justify-center items-center rounded-md bg-amber-500 hover:bg-teal-500 cursor-pointer'>
-                            <input type="button" value="LOGIN" className='font-semibold text-white cursor-pointer'/>
-                        </div>
+                        <button className='w-28 h-10 mb-20 flex justify-center items-center rounded-md bg-amber-500 hover:bg-teal-500 cursor-pointer'>
+                            <span className='font-semibold text-white cursor-pointer'>LOGIN</span>
+                        </button>
 
                         <h1 className='hover:underline hover:decoration-teal-500'><a href="/admin-registration">New Admin Registration? Click here</a></h1>
 

@@ -1,4 +1,4 @@
-import mongoose, { modelNames } from "mongoose";
+import mongoose from "mongoose";
 
 const studentSchema = new mongoose.Schema({
     name:{
@@ -25,11 +25,17 @@ const studentSchema = new mongoose.Schema({
     semester:{
         type: Number,
         required: true,
+        min: [1, 'Semester must be at least 1'],
+        max: [8, 'Semester cannot be more than 8']
     },
     password:{
         type: String,
         required: true,
     },
+    role:{
+        type: String
+    },
+    feesPaidOfSem:{}
 })
 
 const studentModel = mongoose.model('Student', studentSchema)

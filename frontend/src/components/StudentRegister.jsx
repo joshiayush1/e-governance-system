@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import backbtn from "../assets/caret-left-solid.svg"
 import axios from "axios";
 import {toast} from "react-hot-toast"
 
 const StudentRegister = () => {
+    
+    const [colleges, setColleges] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -13,21 +18,60 @@ const StudentRegister = () => {
         semester: '',
         password: '',
         confirmPassword: ''
-    })
+    });
 
+    useEffect(() => {
+        const fetchColleges = async () => {
+            try {
+                const response = await fetch('http://localhost:4001/api/collaborated-colleges');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch colleges');
+                }
+                const data = await response.json();
+                setColleges(data); 
+                setLoading(false); 
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+
+        fetchColleges();
+    }, []); 
+
+    if (loading) {
+        return <div>Loading colleges...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    
     const handleChange = (e) => {
         setFormData((prevData) => ({
             ...prevData,
             [e.target.id]: e.target.value
         }));
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(formData.password !== formData.confirmPassword) toast.error("Passwords do not match!");
+        if(formData.password !== formData.confirmPassword) {
+            toast.error("Passwords do not match!");
+            return;
+        }
+        if (formData.semester > 8) {
+            toast.error("Semester number cannot be greater than 8!");
+        }
         try {
             const response = await axios.post("http://localhost:4001/student/student-register", formData);
             toast.success("Registration Success");
+
+            localStorage.setItem('email', response.data.student.email);
+            localStorage.setItem('role', response.data.student.role);
+
+            window.location.href = '/';
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong!");
         }
@@ -102,9 +146,15 @@ const StudentRegister = () => {
                                         <label htmlFor="college" className='text-slate-700'>Select your College</label>
                                         <span className='text-amber-500'> *</span>
                                     </div>
-                                    <select name="college" id="college" autoComplete='college' value={formData.college} onChange={handleChange} className='border py-2 outline-none w-64 text-slate-700 rounded-md' required>
-                                        <option>Choose College</option>
-                                        <option value="Thakur College of Commerce and Science">Thakur College of Commerce and Science</option>
+                                    <select name="college" id="college" autoComplete='college' value={formData.college} onChange={handleChange} className='border py-2 outline-none w-64 text-slate-700 rounded-md px-2' required>
+                                    <option>Choose College</option>
+                                    {colleges.length > 0 ? (
+                                        colleges.map((college, index) => (
+                                            <option key={index} value={college.name}>{college.name}</option>
+                                        ))
+                                    ) : (
+                                        <option disabled>No colleges available</option>
+                                    )}
                                     </select>
                                 </div>       
 
@@ -112,8 +162,8 @@ const StudentRegister = () => {
                                     <div className='mb-2'>
                                         <label htmlFor="course" className='text-slate-700'>Select Your Course</label>
                                         <span className='text-amber-500'> *</span>
-                                    </div>  
-                                    <select name="course" id="course" autoComplete='course' value={formData.course} onChange={handleChange} className='border py-2 outline-none w-64 text-slate-700 rounded-md' required>
+                                    </div>
+                                    <select name="course" id="course" autoComplete='course' value={formData.course} onChange={handleChange} className='border py-2 outline-none w-64 text-slate-700 rounded-md  px-2' required>
                                         <option>Choose Course</option>
                                         <option value="B.Com. (Investment Management)">B.Com. (Investment Management)</option>
                                         <option value="B.Com. Financial Markets">B.Com. Financial Markets</option>
@@ -183,7 +233,6 @@ const StudentRegister = () => {
                                     <input type="password" id='confirmPassword' value={formData.confirmPassword} onChange={handleChange} required placeholder='Enter your password again' className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm'/>
                                 </div>                
                             </div>
-    
     
                             <button type="submit" className='w-28 h-10 mb-20 flex justify-center items-center rounded-md bg-amber-500 hover:bg-teal-500 cursor-pointer'>
                                 <span className='font-semibold text-white cursor-pointer'>REGISTER</span>
