@@ -57,6 +57,7 @@ export const registerStudent = async (req, res) => {
             semester, 
             password: hashedPassword,
             role : "Student",
+            feesPaid: false,
         });
 
         const student = await newUser.save();

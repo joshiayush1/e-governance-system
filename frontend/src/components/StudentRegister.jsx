@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import backbtn from "../assets/caret-left-solid.svg";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import courses from "../../public/javascripts/courses.js"; // Import the courses array
+import courses from "../../public/javascripts/courses.js";
 
 const StudentRegister = () => {
     const [colleges, setColleges] = useState([]);
@@ -78,16 +78,14 @@ const StudentRegister = () => {
 
     return (
         <div className='min-h-screen max-w-screen overflow-x-hidden flex flex-col justify-center items-center bg-slate-50'>
-            <a href="/">
-                <h1 className='absolute top-0 left-0 h-10 w-28 md:w-40 rounded-md bg-teal-500 hover:bg-amber-500 ml-5 md:ml-10 mt-10 flex justify-center items-center text-sm font-bold text-white cursor-pointer'>
-                    <img src={backbtn} alt="" className='h-full w-2 lg:w-3 mr-2 lg:mr-4'/>
-                    Go to Home
+            <a href="" className="absolute top-0 left-0 mr-5 md:ml-10 mt-10">
+                <h1 className="font-extrabold text-3xl cursor-pointer text-teal-500">
+                ePAY
                 </h1>
-            </a>
-            <a href="" className='absolute top-0 right-0 mr-5 md:mr-10 mt-10'>
-                <h1 className='font-extrabold text-3xl cursor-pointer text-teal-500'>ePAY</h1>
-                <p className='font-extrabold text-[10px] cursor-pointer text-amber-500'>PAY YOUR FEES</p>
-            </a>
+                <p className="font-extrabold text-[10px] cursor-pointer text-amber-500">
+                PAY YOUR FEES
+                </p>
+         </a>
             <div className='h-full w-screen flex flex-col lg:flex-row mt-40 lg:mt-40'>
                 <div className='h-full lg:h-full w-full lg:w-1/2 flex justify-center items-center'>
                     <div className='w-full lg:w-[450px] min-h-[500px] px-5 py-2 lg:px-10 lg:py-10'>
@@ -167,7 +165,7 @@ const StudentRegister = () => {
                                     </select>
                                 </div>
                             </div>
-
+                            <div className='flex flex-col md:flex-row gap-10 mb-10'>
                             <div className='flex flex-col mb-10'>
                                 <div className='mb-2'>
                                     <label htmlFor="rollno" className='text-slate-700'>Your Roll Number</label>
@@ -183,7 +181,8 @@ const StudentRegister = () => {
                                 </div>
                                 <input type="number" id="semester" autoComplete="semester" value={formData.semester} onChange={handleChange} min="1" max="8" className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm' required placeholder="Enter your semester"/>
                             </div>
-
+                            </div>
+                            <div className='flex flex-col md:flex-row gap-10 mb-10'>
                             <div className='flex flex-col mb-10'>
                                 <div className='mb-2'>
                                     <label htmlFor="password" className='text-slate-700'>Create a Password</label>
@@ -198,6 +197,7 @@ const StudentRegister = () => {
                                     <span className='text-amber-500'> *</span>
                                 </div>
                                 <input type="password" id="confirmPassword" autoComplete="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required className='w-64 rounded-md h-10 border border-slate-200 outline-none px-2 text-sm' placeholder="Re-enter password"/>
+                            </div>
                             </div>
 
                             <div className='flex justify-center'>

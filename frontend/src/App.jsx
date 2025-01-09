@@ -8,7 +8,10 @@ import AdminLogin from './components/AdminLogin'
 import AdminRegister from './components/AdminRegister'
 import {Toaster} from "react-hot-toast"
 import EducationFeesPage from './EducationFees/EducationFeesPage'
+import PaymentsPage from "./Payments/PaymentsPage"
 import Logout from './components/Logout'
+import FeedbackPage from './Feedback/FeedbackPage'
+import AboutPage from './About/AboutPage'
 
 const App = () => {
   return (
@@ -22,6 +25,9 @@ const App = () => {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-registration" element={<AdminRegister />} />
         <Route path='/institute-fees' element={<EducationFeesPage />} />
+        <Route path='/student-payments' element={<PaymentsPage />} />
+        <Route path='/feedback' element={<FeedbackPage />} />
+        <Route path='/about' element={<AboutPage />} />
         <Route path='/logout' element={<Logout />} />
       </Routes>
     </Router>

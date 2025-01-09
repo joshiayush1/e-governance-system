@@ -41,17 +41,7 @@ const AdminRegister = () => {
 
   return (
     <div className="min-h-screen max-w-screen overflow-x-hidden flex flex-col justify-center items-center bg-slate-50">
-      <a href="/">
-        <h1 className="absolute top-0 left-0 h-10 w-28 md:w-40 rounded-md bg-teal-500 hover:bg-amber-500 ml-5 md:ml-10 mt-10 flex justify-center items-center text-sm font-bold text-white cursor-pointer">
-          <img
-            src={backbtn}
-            alt=""
-            className="h-full w-2 lg:w-3 mr-2 lg:mr-4"
-          />
-          Go to Home
-        </h1>
-      </a>
-      <a href="" className="absolute top-0 right-0 mr-5 md:mr-10 mt-10">
+      <a href="" className="absolute top-0 left-0 mr-5 md:ml-10 mt-10">
         <h1 className="font-extrabold text-3xl cursor-pointer text-teal-500">
           ePAY
         </h1>

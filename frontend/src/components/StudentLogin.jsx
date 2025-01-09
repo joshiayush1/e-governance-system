@@ -35,16 +35,14 @@ const StudentLogin = () => {
 
   return (
     <div className='min-h-screen w-screen flex flex-col justify-center items-center bg-slate-50'>
-        <a href="/">
-            <h1 className='absolute top-0 left-0 h-10 w-28 md:w-40 rounded-md bg-teal-500 hover:bg-amber-500 ml-5 md:ml-10 mt-10 flex justify-center items-center text-sm font-bold text-white cursor-pointer'>
-                <img src={backbtn} alt="" className='h-full w-2 lg:w-3 mr-2 lg:mr-4'/>
-                    Go to Home
-             </h1>
-        </a>
-        <a href="" className='absolute top-0 right-0 mr-5 md:mr-10 mt-10'>
-            <h1 className='font-extrabold text-3xl cursor-pointer text-teal-500'>ePAY</h1>
-            <p className='font-extrabold text-[10px] cursor-pointer text-amber-500'>PAY YOUR FEES</p>
-        </a>
+        <a href="" className="absolute top-0 left-0 mr-5 md:ml-10 mt-10">
+        <h1 className="font-extrabold text-3xl cursor-pointer text-teal-500">
+          ePAY
+        </h1>
+        <p className="font-extrabold text-[10px] cursor-pointer text-amber-500">
+          PAY YOUR FEES
+        </p>
+      </a>
         <div className='h-screen w-screen flex flex-col lg:flex-row mt-40 lg:mt-0'>
             <div className='h-1/2 lg:h-full w-full lg:w-1/2 flex justify-center items-center'>
                 <div className='w-full lg:w-[450px] min-h-[500px] px-5 py-2 lg:px-10 lg:py-10'>
