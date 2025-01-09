@@ -79,4 +79,32 @@ export const registerStudent = async (req, res) => {
     }
 };
 
-export default {loginStudent, registerStudent};
+export const getStudentByEmail = async (req, res) => {
+    try {
+        const { email } = req.params;
+        const student = await studentModel.findOne({ email });
+        
+        if (!student) {
+            return res.status(404).json({ success: false, message: "Student not found" });
+        }
+
+        res.status(200).json({
+            success: true,
+            student: {
+                id: student._id,
+                name: student.name,
+                email: student.email,
+                college: student.college,
+                course: student.course,
+                rollno: student.rollno,
+                semester: student.semester,
+                feesPaid: student.feesPaid,
+            }
+        });
+    } catch (err) {
+        console.log("Error:", err);
+        res.status(500).json({ success: false, message: "Internal server error" });
+    }
+};
+
+export default {loginStudent, registerStudent, getStudentByEmail};

@@ -6,7 +6,6 @@ import Footer from "../components/Footer"
 const EducationFeesPage = () => {
   return (
     <>
-        <Header />
         <EducationFees />
         <Footer />
     </>

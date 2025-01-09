@@ -35,7 +35,9 @@ const studentSchema = new mongoose.Schema({
     role:{
         type: String
     },
-    feesPaidOfSem:{}
+    feesPaid:{
+        type: Boolean
+    }
 })
 
 const studentModel = mongoose.model('Student', studentSchema)
