@@ -8,7 +8,7 @@ export const loginStudent = async (req, res) => {
     try {
         const { email, password } = req.body;
         const student = await studentModel.findOne({ email });
-        console.log(student);
+        // console.log(student);
         
         if (!student) {
             return res.status(400).json({ success: false, message: "User not found" });
@@ -61,7 +61,7 @@ export const registerStudent = async (req, res) => {
         });
 
         const student = await newUser.save();
-        console.log(student);
+        // console.log(student);
 
         const token = createToken(student._id);
         res.status(201).json({
